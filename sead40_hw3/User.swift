@@ -8,8 +8,12 @@
 
 import Foundation
 
-class User {
+struct User {
   
+  let username : String
+  let name : String
+  let userLocation : String
+  let userEmail : String
 
   
 }
