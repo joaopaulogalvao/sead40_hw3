@@ -10,16 +10,22 @@ import Foundation
 
 class GithubService {
   class func repositoriesForSearchTerm(searchTerm : String) {
+    
     let baseURL = "http://localhost:3000"
     let finalURL = baseURL + "?q=\(searchTerm)"
+    
     if let url = NSURL(string: finalURL) {
       NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
         if let error = error {
           println("error")
         } else if let httpResponse = response as? NSHTTPURLResponse {
-          println(httpResponse)
           
           
+          println("http response: \(httpResponse)")
+          
+          let testGits = GithubJSONParser.userInfoFromJSONData(data)
+          
+          println("test gits: \(testGits)")
         }
       }).resume()
     }
