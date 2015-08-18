@@ -10,8 +10,11 @@ import UIKit
 
 class RepoSearchViewController: UIViewController {
 
+  @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
+      self.searchBar.delegate = self
+      
 
         // Do any additional setup after loading the view.
     }
@@ -32,4 +35,12 @@ class RepoSearchViewController: UIViewController {
     }
     */
 
+}
+
+extension RepoSearchViewController : UISearchBarDelegate {
+  
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    GithubService.repositoriesForSearchTerm(searchBar.text)
+  }
+  
 }

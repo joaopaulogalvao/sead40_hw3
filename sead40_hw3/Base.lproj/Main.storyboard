@@ -39,7 +39,6 @@
                                                 <constraint firstItem="jaK-ac-oxN" firstAttribute="top" secondItem="l0P-hp-P8t" secondAttribute="topMargin" constant="-4" id="HlE-r7-elm"/>
                                                 <constraint firstAttribute="centerY" secondItem="dvK-Ro-O4y" secondAttribute="centerY" id="eVo-lO-UhU"/>
                                                 <constraint firstItem="dvK-Ro-O4y" firstAttribute="top" secondItem="l0P-hp-P8t" secondAttribute="topMargin" constant="26" id="gAS-kB-UyJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="jaK-ac-oxN" secondAttribute="bottom" constant="-4" id="j8X-3i-NUG"/>
                                                 <constraint firstItem="jaK-ac-oxN" firstAttribute="leading" secondItem="l0P-hp-P8t" secondAttribute="leadingMargin" id="sbC-Fq-M4N"/>
                                                 <constraint firstItem="dvK-Ro-O4y" firstAttribute="leading" secondItem="jaK-ac-oxN" secondAttribute="trailing" constant="8" id="ykR-lg-zs2"/>
                                             </constraints>
@@ -70,7 +69,6 @@
                                                 <constraint firstItem="D6m-Je-XyA" firstAttribute="top" secondItem="TEd-tp-zt9" secondAttribute="topMargin" constant="-4" id="4wX-4d-aJl"/>
                                                 <constraint firstItem="oRO-0q-tZW" firstAttribute="top" secondItem="TEd-tp-zt9" secondAttribute="topMargin" constant="26" id="6YM-MA-AyE"/>
                                                 <constraint firstAttribute="centerY" secondItem="oRO-0q-tZW" secondAttribute="centerY" id="M1g-Zo-nVR"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="D6m-Je-XyA" secondAttribute="bottom" constant="-4" id="RN9-pj-Zg8"/>
                                                 <constraint firstItem="oRO-0q-tZW" firstAttribute="leading" secondItem="D6m-Je-XyA" secondAttribute="trailing" constant="8" id="h4m-og-w56"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -101,7 +99,6 @@
                                             <constraints>
                                                 <constraint firstItem="JFZ-EA-uLj" firstAttribute="leading" secondItem="6kv-pl-2wU" secondAttribute="leadingMargin" id="6Ce-DP-99n"/>
                                                 <constraint firstItem="z5u-jH-AQu" firstAttribute="leading" secondItem="JFZ-EA-uLj" secondAttribute="trailing" constant="8" id="CqO-1U-DJB"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="JFZ-EA-uLj" secondAttribute="bottom" constant="-4" id="DTD-Dx-FtF"/>
                                                 <constraint firstAttribute="centerY" secondItem="z5u-jH-AQu" secondAttribute="centerY" id="Muw-eC-Nqq"/>
                                                 <constraint firstItem="JFZ-EA-uLj" firstAttribute="top" secondItem="6kv-pl-2wU" secondAttribute="topMargin" constant="-4" id="TUR-gh-DrZ"/>
                                                 <constraint firstItem="z5u-jH-AQu" firstAttribute="top" secondItem="6kv-pl-2wU" secondAttribute="topMargin" constant="26" id="ai0-sW-8UO"/>
@@ -135,7 +132,6 @@
                                                 <constraint firstItem="fG8-p4-YoL" firstAttribute="leading" secondItem="qMK-J5-8wA" secondAttribute="trailing" constant="8" id="04n-YF-cE9"/>
                                                 <constraint firstAttribute="centerY" secondItem="fG8-p4-YoL" secondAttribute="centerY" id="KZO-Cz-PXS"/>
                                                 <constraint firstItem="fG8-p4-YoL" firstAttribute="top" secondItem="teg-bK-uEa" secondAttribute="topMargin" constant="26" id="Pk2-PY-toH"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qMK-J5-8wA" secondAttribute="bottom" constant="-4" id="emt-C0-Vfi"/>
                                                 <constraint firstItem="qMK-J5-8wA" firstAttribute="leading" secondItem="teg-bK-uEa" secondAttribute="leadingMargin" id="k4c-d4-do2"/>
                                                 <constraint firstItem="qMK-J5-8wA" firstAttribute="top" secondItem="teg-bK-uEa" secondAttribute="topMargin" constant="-4" id="tvJ-WO-SXk"/>
                                             </constraints>
@@ -158,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="838" y="379"/>
         </scene>
-        <!--View Controller-->
+        <!--Repo Search View Controller-->
         <scene sceneID="gNE-Aa-eR4">
             <objects>
-                <viewController id="HmU-SE-RYP" sceneMemberID="viewController">
+                <viewController id="HmU-SE-RYP" customClass="RepoSearchViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IH3-lR-MfD"/>
                         <viewControllerLayoutGuide type="bottom" id="QXn-2Y-XaL"/>
@@ -188,6 +184,9 @@
                             <constraint firstItem="88g-8b-Xvf" firstAttribute="leading" secondItem="Zz5-p6-wod" secondAttribute="leadingMargin" constant="-16" id="tTv-ZC-nDF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="GjD-if-yTu" id="LDR-Py-kyx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRz-gd-gBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
