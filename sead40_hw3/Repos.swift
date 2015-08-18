@@ -8,6 +8,9 @@
 
 import Foundation
 
-class Repos {
+struct Repos {
+  
+  let repoName : String
+  let repoDescription : String
   
 }
