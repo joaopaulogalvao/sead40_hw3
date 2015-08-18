@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Menu Table View Controller-->
         <scene sceneID="IZA-oT-Mve">
             <objects>
-                <tableViewController id="Kfc-1Z-OqK" sceneMemberID="viewController">
+                <tableViewController id="Kfc-1Z-OqK" customClass="MenuTableViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="91" sectionHeaderHeight="10" sectionFooterHeight="10" id="e4q-nx-1Yj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vhV-7o-1Af" id="TEd-tp-zt9">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D6m-Je-XyA">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHub" translatesAutoresizingMaskIntoConstraints="NO" id="D6m-Je-XyA">
                                                     <rect key="frame" x="8" y="4" width="82" height="82"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="82" id="8eU-nW-eEc"/>
@@ -84,7 +84,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1EH-nI-NOV" id="6kv-pl-2wU">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JFZ-EA-uLj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="JFZ-EA-uLj">
                                                     <rect key="frame" x="8" y="4" width="82" height="82"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="82" id="qJ1-9T-UX8"/>
@@ -117,7 +117,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ad7-Da-KjK" id="teg-bK-uEa">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qMK-J5-8wA">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHub" translatesAutoresizingMaskIntoConstraints="NO" id="qMK-J5-8wA">
                                                     <rect key="frame" x="8" y="4" width="82" height="82"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="82" id="3O9-LT-ACn"/>
@@ -140,6 +140,9 @@
                                                 <constraint firstItem="qMK-J5-8wA" firstAttribute="top" secondItem="teg-bK-uEa" secondAttribute="topMargin" constant="-4" id="tvJ-WO-SXk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="HmU-SE-RYP" kind="show" id="bm3-FF-Ma9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -188,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRz-gd-gBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1527" y="379"/>
+            <point key="canvasLocation" x="1663" y="703"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4pm-5h-Svp">
@@ -209,4 +212,11 @@
             <point key="canvasLocation" x="26" y="379"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gitHub" width="128" height="128"/>
+        <image name="placeholder" width="128" height="128"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bm3-FF-Ma9"/>
+    </inferredMetricsTieBreakers>
 </document>
