@@ -13,6 +13,8 @@
 		6CA12BBC1B8268FD00E54CCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CA12BBB1B8268FD00E54CCF /* Images.xcassets */; };
 		6CA12BBF1B8268FD00E54CCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA12BBD1B8268FD00E54CCF /* LaunchScreen.xib */; };
 		6CA12BCB1B8268FD00E54CCF /* sead40_hw3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA12BCA1B8268FD00E54CCF /* sead40_hw3Tests.swift */; };
+		6CA12BD81B82B80000E54CCF /* Repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA12BD71B82B80000E54CCF /* Repos.swift */; };
+		6CA12BDA1B82BD8F00E54CCF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA12BD91B82BD8F00E54CCF /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		6CA12BC41B8268FD00E54CCF /* sead40_hw3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sead40_hw3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CA12BC91B8268FD00E54CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CA12BCA1B8268FD00E54CCF /* sead40_hw3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sead40_hw3Tests.swift; sourceTree = "<group>"; };
+		6CA12BD71B82B80000E54CCF /* Repos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repos.swift; sourceTree = "<group>"; };
+		6CA12BD91B82BD8F00E54CCF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				6CA12BB41B8268FD00E54CCF /* AppDelegate.swift */,
-				6CA12BB61B8268FD00E54CCF /* ViewController.swift */,
-				6CA12BB81B8268FD00E54CCF /* Main.storyboard */,
+				6CA12BD41B82A37F00E54CCF /* Model */,
+				6CA12BD51B82A38B00E54CCF /* View */,
+				6CA12BD61B82A39100E54CCF /* Controller */,
 				6CA12BBB1B8268FD00E54CCF /* Images.xcassets */,
-				6CA12BBD1B8268FD00E54CCF /* LaunchScreen.xib */,
 				6CA12BB21B8268FD00E54CCF /* Supporting Files */,
 			);
 			path = sead40_hw3;
@@ -110,6 +114,32 @@
 				6CA12BC91B8268FD00E54CCF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CA12BD41B82A37F00E54CCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6CA12BD91B82BD8F00E54CCF /* User.swift */,
+				6CA12BD71B82B80000E54CCF /* Repos.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6CA12BD51B82A38B00E54CCF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6CA12BB81B8268FD00E54CCF /* Main.storyboard */,
+				6CA12BBD1B8268FD00E54CCF /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6CA12BD61B82A39100E54CCF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6CA12BB61B8268FD00E54CCF /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CA12BDA1B82BD8F00E54CCF /* User.swift in Sources */,
+				6CA12BD81B82B80000E54CCF /* Repos.swift in Sources */,
 				6CA12BB71B8268FD00E54CCF /* ViewController.swift in Sources */,
 				6CA12BB51B8268FD00E54CCF /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +443,7 @@
 				6CA12BD01B8268FD00E54CCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6CA12BD11B8268FD00E54CCF /* Build configuration list for PBXNativeTarget "sead40_hw3Tests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +452,7 @@
 				6CA12BD31B8268FD00E54CCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
