@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Menu Table View Controller-->
         <scene sceneID="IZA-oT-Mve">
             <objects>
-                <tableViewController id="Kfc-1Z-OqK" sceneMemberID="viewController">
+                <tableViewController id="Kfc-1Z-OqK" customClass="MenuTableViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="91" sectionHeaderHeight="10" sectionFooterHeight="10" id="e4q-nx-1Yj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +39,6 @@
                                                 <constraint firstItem="jaK-ac-oxN" firstAttribute="top" secondItem="l0P-hp-P8t" secondAttribute="topMargin" constant="-4" id="HlE-r7-elm"/>
                                                 <constraint firstAttribute="centerY" secondItem="dvK-Ro-O4y" secondAttribute="centerY" id="eVo-lO-UhU"/>
                                                 <constraint firstItem="dvK-Ro-O4y" firstAttribute="top" secondItem="l0P-hp-P8t" secondAttribute="topMargin" constant="26" id="gAS-kB-UyJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="jaK-ac-oxN" secondAttribute="bottom" constant="-4" id="j8X-3i-NUG"/>
                                                 <constraint firstItem="jaK-ac-oxN" firstAttribute="leading" secondItem="l0P-hp-P8t" secondAttribute="leadingMargin" id="sbC-Fq-M4N"/>
                                                 <constraint firstItem="dvK-Ro-O4y" firstAttribute="leading" secondItem="jaK-ac-oxN" secondAttribute="trailing" constant="8" id="ykR-lg-zs2"/>
                                             </constraints>
@@ -51,7 +50,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vhV-7o-1Af" id="TEd-tp-zt9">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D6m-Je-XyA">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHub" translatesAutoresizingMaskIntoConstraints="NO" id="D6m-Je-XyA">
                                                     <rect key="frame" x="8" y="4" width="82" height="82"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="82" id="8eU-nW-eEc"/>
@@ -70,7 +69,6 @@
                                                 <constraint firstItem="D6m-Je-XyA" firstAttribute="top" secondItem="TEd-tp-zt9" secondAttribute="topMargin" constant="-4" id="4wX-4d-aJl"/>
                                                 <constraint firstItem="oRO-0q-tZW" firstAttribute="top" secondItem="TEd-tp-zt9" secondAttribute="topMargin" constant="26" id="6YM-MA-AyE"/>
                                                 <constraint firstAttribute="centerY" secondItem="oRO-0q-tZW" secondAttribute="centerY" id="M1g-Zo-nVR"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="D6m-Je-XyA" secondAttribute="bottom" constant="-4" id="RN9-pj-Zg8"/>
                                                 <constraint firstItem="oRO-0q-tZW" firstAttribute="leading" secondItem="D6m-Je-XyA" secondAttribute="trailing" constant="8" id="h4m-og-w56"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -84,7 +82,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1EH-nI-NOV" id="6kv-pl-2wU">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JFZ-EA-uLj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="JFZ-EA-uLj">
                                                     <rect key="frame" x="8" y="4" width="82" height="82"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="82" id="qJ1-9T-UX8"/>
@@ -101,7 +99,6 @@
                                             <constraints>
                                                 <constraint firstItem="JFZ-EA-uLj" firstAttribute="leading" secondItem="6kv-pl-2wU" secondAttribute="leadingMargin" id="6Ce-DP-99n"/>
                                                 <constraint firstItem="z5u-jH-AQu" firstAttribute="leading" secondItem="JFZ-EA-uLj" secondAttribute="trailing" constant="8" id="CqO-1U-DJB"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="JFZ-EA-uLj" secondAttribute="bottom" constant="-4" id="DTD-Dx-FtF"/>
                                                 <constraint firstAttribute="centerY" secondItem="z5u-jH-AQu" secondAttribute="centerY" id="Muw-eC-Nqq"/>
                                                 <constraint firstItem="JFZ-EA-uLj" firstAttribute="top" secondItem="6kv-pl-2wU" secondAttribute="topMargin" constant="-4" id="TUR-gh-DrZ"/>
                                                 <constraint firstItem="z5u-jH-AQu" firstAttribute="top" secondItem="6kv-pl-2wU" secondAttribute="topMargin" constant="26" id="ai0-sW-8UO"/>
@@ -117,7 +114,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ad7-Da-KjK" id="teg-bK-uEa">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qMK-J5-8wA">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHub" translatesAutoresizingMaskIntoConstraints="NO" id="qMK-J5-8wA">
                                                     <rect key="frame" x="8" y="4" width="82" height="82"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="82" id="3O9-LT-ACn"/>
@@ -135,11 +132,13 @@
                                                 <constraint firstItem="fG8-p4-YoL" firstAttribute="leading" secondItem="qMK-J5-8wA" secondAttribute="trailing" constant="8" id="04n-YF-cE9"/>
                                                 <constraint firstAttribute="centerY" secondItem="fG8-p4-YoL" secondAttribute="centerY" id="KZO-Cz-PXS"/>
                                                 <constraint firstItem="fG8-p4-YoL" firstAttribute="top" secondItem="teg-bK-uEa" secondAttribute="topMargin" constant="26" id="Pk2-PY-toH"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qMK-J5-8wA" secondAttribute="bottom" constant="-4" id="emt-C0-Vfi"/>
                                                 <constraint firstItem="qMK-J5-8wA" firstAttribute="leading" secondItem="teg-bK-uEa" secondAttribute="leadingMargin" id="k4c-d4-do2"/>
                                                 <constraint firstItem="qMK-J5-8wA" firstAttribute="top" secondItem="teg-bK-uEa" secondAttribute="topMargin" constant="-4" id="tvJ-WO-SXk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="HmU-SE-RYP" kind="show" id="bm3-FF-Ma9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -155,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="838" y="379"/>
         </scene>
-        <!--View Controller-->
+        <!--Repo Search View Controller-->
         <scene sceneID="gNE-Aa-eR4">
             <objects>
-                <viewController id="HmU-SE-RYP" sceneMemberID="viewController">
+                <viewController id="HmU-SE-RYP" customClass="RepoSearchViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IH3-lR-MfD"/>
                         <viewControllerLayoutGuide type="bottom" id="QXn-2Y-XaL"/>
@@ -175,6 +174,23 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" textLabel="Bti-dJ-JGG" style="IBUITableViewCellStyleDefault" id="VdY-Od-Cgo">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VdY-Od-Cgo" id="o5L-q3-VfO">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bti-dJ-JGG">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,10 +201,14 @@
                             <constraint firstItem="88g-8b-Xvf" firstAttribute="leading" secondItem="Zz5-p6-wod" secondAttribute="leadingMargin" constant="-16" id="tTv-ZC-nDF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="GjD-if-yTu" id="LDR-Py-kyx"/>
+                        <outlet property="tableviewSearch" destination="88g-8b-Xvf" id="7Dg-cp-wlz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRz-gd-gBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1527" y="379"/>
+            <point key="canvasLocation" x="1724" y="665"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4pm-5h-Svp">
@@ -209,4 +229,11 @@
             <point key="canvasLocation" x="26" y="379"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gitHub" width="128" height="128"/>
+        <image name="placeholder" width="128" height="128"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bm3-FF-Ma9"/>
+    </inferredMetricsTieBreakers>
 </document>

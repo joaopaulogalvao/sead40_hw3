@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Repos.swift
 //  sead40_hw3
 //
 //  Created by Joao Paulo Galvao Alves on 8/17/15.
@@ -8,12 +8,9 @@
 
 import Foundation
 
-struct User {
-  
-  var username : String?
-  var gitName : String?
-  var userLocation : String?
-  var userEmail : String?
+struct Repos {
 
-  
+  let repoName : String
+  let repoDescription : String
+
 }

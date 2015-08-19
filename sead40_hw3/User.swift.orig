@@ -14,6 +14,6 @@ struct User {
   var gitName : String?
   var userLocation : String?
   var userEmail : String?
-
+  
   
 }

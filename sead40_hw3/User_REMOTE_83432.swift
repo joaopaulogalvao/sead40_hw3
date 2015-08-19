@@ -10,10 +10,10 @@ import Foundation
 
 struct User {
   
-  var username : String?
-  var gitName : String?
-  var userLocation : String?
-  var userEmail : String?
+  let username : String
+  let name : String
+  let userLocation : String
+  let userEmail : String
 
   
 }
