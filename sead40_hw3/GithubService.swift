@@ -14,7 +14,7 @@ class GithubService {
   
   private init() {}
   
-  class func repositoriesForSearchTerm(searchTerm : (String?, [User]?) -> (Void)){
+  class func repositoriesForSearchTerm(searchTerm : String? , completionHandler : (String?, [User]?) -> (Void)){
     
     var results : [User]!
     let baseURL = "https://api.github.com/search/users"
@@ -25,7 +25,7 @@ class GithubService {
       NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
         if let error = error {
           println("error")
-          searchTerm("Could not connect to server",nil)
+          completionHandler("Could not connect to server",nil)
         } else if let httpResponse = response as? NSHTTPURLResponse {
           
           println("http response: \(httpResponse.statusCode)")
@@ -33,13 +33,13 @@ class GithubService {
           switch httpResponse.statusCode {
           case 200...299:
             let gitAccounts = GithubJSONParser.userInfoFromJSONData(data)
-            searchTerm(nil,gitAccounts)
+            completionHandler(nil,gitAccounts)
           case 400...499:
-            searchTerm("this is our fault", nil)
+            completionHandler("this is our fault", nil)
           case 500...599:
-            searchTerm("this is the servers fault", nil)
+            completionHandler("this is the servers fault", nil)
           default:
-            searchTerm("error occurred", nil)
+            completionHandler("error occurred", nil)
           }
         }
       }).resume()
