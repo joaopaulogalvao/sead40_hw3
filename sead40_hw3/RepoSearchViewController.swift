@@ -11,7 +11,7 @@ import UIKit
 class RepoSearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
   
-  var userResults : [User] = []
+  var userResults = [User]()
   
   @IBOutlet weak var tableviewSearch: UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
@@ -47,8 +47,8 @@ class RepoSearchViewController: UIViewController, UITableViewDataSource, UITable
 
 extension RepoSearchViewController : UISearchBarDelegate {
   
-  func searchBarSearchButtonClicked((searchBar: UISearchBar, results: [User]) -> (Void)) {
-    self.userResults = GithubService.repositoriesForSearchTerm(self.searchBar.text, results: self.userResults)
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    self.userResults = GithubService.repositoriesForSearchTerm(self.searchBar.text, userResults)
   }
   
 }

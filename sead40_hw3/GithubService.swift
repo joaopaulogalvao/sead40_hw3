@@ -9,7 +9,7 @@
 import Foundation
 
 class GithubService {
-  class func repositoriesForSearchTerm(searchTerm : String?, results:[User]?) -> (Void){
+  class func repositoriesForSearchTerm(searchTerm : (String?, results:[User]?) -> (Void)){
     
     var results : [User]!
     let baseURL = "http://localhost:3000"
