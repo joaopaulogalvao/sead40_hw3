@@ -17,7 +17,7 @@ class GithubService {
   class func repositoriesForSearchTerm(searchTerm : (String?, [User]?) -> (Void)){
     
     var results : [User]!
-    let baseURL = "http://localhost:3000"
+    let baseURL = "https://api.github.com/search/users"
     let finalURL = baseURL + "?q=\(searchTerm)"
     
     //Create the url request

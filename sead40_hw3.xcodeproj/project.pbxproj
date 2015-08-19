@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C93E3341B84E79600A2EACF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93E3331B84E79600A2EACF /* Keys.swift */; };
 		6C93E3361B84F00200A2EACF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93E3351B84F00200A2EACF /* AuthService.swift */; };
+		6C93E3381B85061900A2EACF /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93E3371B85061900A2EACF /* KeyChainService.swift */; };
 		6CA12BB51B8268FD00E54CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA12BB41B8268FD00E54CCF /* AppDelegate.swift */; };
 		6CA12BB71B8268FD00E54CCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA12BB61B8268FD00E54CCF /* ViewController.swift */; };
 		6CA12BBA1B8268FD00E54CCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CA12BB81B8268FD00E54CCF /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		6C93E3331B84E79600A2EACF /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		6C93E3351B84F00200A2EACF /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = ../AuthService.swift; sourceTree = "<group>"; };
+		6C93E3371B85061900A2EACF /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		6CA12BAF1B8268FD00E54CCF /* sead40_hw3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sead40_hw3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CA12BB31B8268FD00E54CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CA12BB41B8268FD00E54CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		6CA12BD61B82A39100E54CCF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6C93E3371B85061900A2EACF /* KeyChainService.swift */,
 				6C93E3351B84F00200A2EACF /* AuthService.swift */,
 				6CA12BB61B8268FD00E54CCF /* ViewController.swift */,
 				6CA12BDB1B8390D800E54CCF /* GithubService.swift */,
@@ -267,6 +270,7 @@
 				6CA12BDE1B83914200E54CCF /* MenuTableViewController.swift in Sources */,
 				6CA12BB71B8268FD00E54CCF /* ViewController.swift in Sources */,
 				6CA12BDC1B8390D800E54CCF /* GithubService.swift in Sources */,
+				6C93E3381B85061900A2EACF /* KeyChainService.swift in Sources */,
 				6C93E3361B84F00200A2EACF /* AuthService.swift in Sources */,
 				6C93E3341B84E79600A2EACF /* Keys.swift in Sources */,
 				6CA12BB51B8268FD00E54CCF /* AppDelegate.swift in Sources */,

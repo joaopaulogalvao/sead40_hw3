@@ -51,6 +51,7 @@ extension RepoSearchViewController : UISearchBarDelegate {
      GithubService.repositoriesForSearchTerm { (errorDescription, gitUsers) -> (Void) in
       if let gitUsers = gitUsers {
         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+//          println(gitUsers)
           self.userResults = gitUsers
           self.tableviewSearch.reloadData()
         })

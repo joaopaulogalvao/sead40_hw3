@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
     println(url)
     
+    AuthService.exchangeCodeInURL(url)
+    
     return true
   }
 
