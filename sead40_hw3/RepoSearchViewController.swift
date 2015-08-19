@@ -49,12 +49,7 @@ extension RepoSearchViewController : UISearchBarDelegate {
   
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-    GithubService.repositoriesForSearchTerm(self.searchBar.text, completionHandler: { (errorDescription, userResults) -> (Void) in
-      if let users = userResults {
-        self.userResults = users
-        self.tableviewSearch.reloadData()
-      }
-    })
+     GithubService.repositoriesForSearchTerm(self.searchBar.text, self.userResults)
   }
   
 }
