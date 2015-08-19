@@ -17,11 +17,12 @@ class GithubJSONParser {
     if let userDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
       
       if let items = userDict["items"] as? [[String : AnyObject]] {
+        
         for item in items {
 
           if let username = item["name"] as? String, gitName = item["full_name"] as? String, userLocation = item["html_url"] as? String, userEmail = item["url"] as? String {
-            var gitUser = User(username: username, gitName: gitName, userLocation: userLocation, userEmail: userEmail)
             
+            var gitUser = User(username: username, gitName: gitName, userLocation: userLocation, userEmail: userEmail)
             
             gitUserInfo.append(gitUser)
             println("gitUserInfo Array:\(gitUser)")
