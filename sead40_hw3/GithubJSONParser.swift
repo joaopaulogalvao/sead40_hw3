@@ -20,7 +20,7 @@ class GithubJSONParser {
         
         for item in items {
 
-          if let username = item["name"] as? String, gitName = item["full_name"] as? String, userLocation = item["html_url"] as? String, userEmail = item["url"] as? String {
+          if let username = item["login"] as? String, gitName = item["repos_url"] as? String, userLocation = item["html_url"] as? String, userEmail = item["avatar_url"] as? String {
             
             var gitUser = User(username: username, gitName: gitName, userLocation: userLocation, userEmail: userEmail)
             

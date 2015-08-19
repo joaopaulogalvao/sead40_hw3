@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     
     if let token = KeychainService.loadToken() {
-      
+      println(token)
     } else {
       let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
       if let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController {

@@ -154,6 +154,43 @@
             </objects>
             <point key="canvasLocation" x="838" y="379"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Xsg-l7-Ekv">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="sD7-98-QXV" customClass="LoginViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lzb-ck-9Xs"/>
+                        <viewControllerLayoutGuide type="bottom" id="ERb-DS-E8T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="quv-s9-vSu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-GR-7XM">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="performLogin:" destination="sD7-98-QXV" eventType="touchUpInside" id="wrH-Wh-gEC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LSN-GR-7XM" firstAttribute="top" secondItem="lzb-ck-9Xs" secondAttribute="bottom" constant="265" id="1lk-Gi-cmL"/>
+                            <constraint firstAttribute="centerX" secondItem="LSN-GR-7XM" secondAttribute="centerX" id="9hX-GO-4sl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LSN-GR-7XM" secondAttribute="trailing" constant="261" id="Ch4-4V-5lP"/>
+                            <constraint firstItem="ERb-DS-E8T" firstAttribute="top" secondItem="LSN-GR-7XM" secondAttribute="bottom" constant="285" id="OmH-Mh-Z7s"/>
+                            <constraint firstAttribute="centerY" secondItem="LSN-GR-7XM" secondAttribute="centerY" id="PFk-y4-bBL"/>
+                            <constraint firstItem="LSN-GR-7XM" firstAttribute="leading" secondItem="quv-s9-vSu" secondAttribute="leadingMargin" constant="261" id="cf5-id-YI8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BxN-j4-Ao2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1510" y="-149"/>
+        </scene>
         <!--Repo Search View Controller-->
         <scene sceneID="gNE-Aa-eR4">
             <objects>
@@ -234,6 +271,6 @@
         <image name="placeholder" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bm3-FF-Ma9"/>
+        <segue reference="gEn-Ew-DKC"/>
     </inferredMetricsTieBreakers>
 </document>

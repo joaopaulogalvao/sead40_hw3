@@ -20,8 +20,20 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  override func viewDidAppear(animated: Bool) {
+    if let token = KeychainService.loadToken() {
+      
+      
+      
+    } else {
+      AuthService.performInitialRequest()
+    }
+  }
     
 
+  @IBAction func performLogin(sender: AnyObject) {
+  }
     /*
     // MARK: - Navigation
 
