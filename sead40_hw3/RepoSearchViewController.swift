@@ -8,14 +8,22 @@
 
 import UIKit
 
-class RepoSearchViewController: UIViewController {
+class RepoSearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+  
+  var userResults : [User] = []
+  
+  @IBOutlet weak var tableviewSearch: UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       self.searchBar.delegate = self
-      
+      self.tableviewSearch.dataSource = self
+      self.tableviewSearch.delegate = self
 
+      
         // Do any additional setup after loading the view.
     }
 
@@ -39,8 +47,39 @@ class RepoSearchViewController: UIViewController {
 
 extension RepoSearchViewController : UISearchBarDelegate {
   
-  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-    GithubService.repositoriesForSearchTerm(searchBar.text)
+  func searchBarSearchButtonClicked((searchBar: UISearchBar, results: [User]) -> (Void)) {
+    self.userResults = GithubService.repositoriesForSearchTerm(self.searchBar.text, results: self.userResults)
   }
   
 }
+
+extension RepoSearchViewController : UITableViewDataSource {
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.userResults.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let userSearchCell = tableviewSearch.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath) as! UITableViewCell
+    
+//    userSearchCell.tag++
+//    let tag = userSearchCell.tag
+    
+    var infoFromUser = self.userResults[indexPath.row]
+    
+    userSearchCell.textLabel?.text = infoFromUser.username
+    
+    //tableviewSearch.reloadData()
+    
+    return userSearchCell
+  }
+}
+
+
+
+
+
+
+
+
+

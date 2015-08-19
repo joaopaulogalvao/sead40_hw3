@@ -9,8 +9,9 @@
 import Foundation
 
 class GithubService {
-  class func repositoriesForSearchTerm(searchTerm : String) {
+  class func repositoriesForSearchTerm(searchTerm : String?, results:[User]?) -> (Void){
     
+    var results : [User]!
     let baseURL = "http://localhost:3000"
     let finalURL = baseURL + "?q=\(searchTerm)"
     
@@ -23,12 +24,11 @@ class GithubService {
           
           println("http response: \(httpResponse)")
           
-          let testGits = GithubJSONParser.userInfoFromJSONData(data)
+          results = GithubJSONParser.userInfoFromJSONData(data)
           
-          println("test gits: \(testGits)")
+          println("test gits: \(results)")
         }
       }).resume()
     }
-    
   }
 }
