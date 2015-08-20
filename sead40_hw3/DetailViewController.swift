@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
   var users = [User]()
   
   @IBOutlet weak var labelUserDetail: UILabel!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -128,6 +128,11 @@ extension UserSearchViewController : UICollectionViewDataSource{
     // Set the imageView for nil each time it dequeue a cell. 
     cell.imageViewUser.image = nil
     
+    cell.tag++
+    let tag = cell.tag
+    
+    
+    
     var userImage = userResults[indexPath.row]
     println("Users image:\(userImage)")
     
@@ -137,6 +142,7 @@ extension UserSearchViewController : UICollectionViewDataSource{
       cell.imageViewUser.image = profileImage
     } else {
       
+      //The reason Brad's is async is because in his service he made a queue 
       //Only load when needed
       userImageQueue.addOperationWithBlock({ () -> Void in
         //Check if there is an URL - set indexPath for each url / check Data and image
