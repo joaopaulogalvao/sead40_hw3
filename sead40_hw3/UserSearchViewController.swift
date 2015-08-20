@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  UserSearchViewController.swift
 //  sead40_hw3
 //
 //  Created by Joao Paulo Galvao Alves on 8/19/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class UserSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,26 +20,8 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
-  override func viewDidAppear(animated: Bool) {
-    
-    if let token = KeychainService.loadToken() {
-      
-      
-      
-    } else {
-      AuthService.performInitialRequest()
-    }
-    
-  }
     
 
-  @IBAction func performLogin(sender: AnyObject) {
-    
-    println("pressed")
-    
-    
-  }
     /*
     // MARK: - Navigation
 
@@ -49,9 +31,5 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-  
-  deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: kTokenNotification, object: nil)
-  }
 
 }
