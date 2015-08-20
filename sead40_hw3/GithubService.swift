@@ -14,7 +14,7 @@ class GithubService {
   
   private init() {}
   
-  class func repositoriesForSearchTerm(searchTerm : String , completionHandler : (String?, [User]?) -> (Void)){
+  class func usersForSearchTerm(searchTerm : String , completionHandler : (String?, [User]?) -> (Void)){
     
     var results : [User]!
     let baseURL = "https://api.github.com/search/users"

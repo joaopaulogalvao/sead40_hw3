@@ -48,7 +48,7 @@ class RepoSearchViewController: UIViewController, UITableViewDataSource, UITable
 extension RepoSearchViewController : UISearchBarDelegate {
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-     GithubService.repositoriesForSearchTerm(self.searchBar.text) { (errorDescription, gitUsers) -> (Void) in
+     GithubService.usersForSearchTerm(self.searchBar.text) { (errorDescription, gitUsers) -> (Void) in
     
       if let gitUsers = gitUsers {
         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
