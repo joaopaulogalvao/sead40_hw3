@@ -11,6 +11,8 @@ import UIKit
 class UserSearchViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
   var userResults = [User]()
+  var gitHubUser : User?
+  lazy var userImageQueue = NSOperationQueue()
   
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var searchBarUser: UISearchBar!
@@ -79,6 +81,48 @@ extension UserSearchViewController : UICollectionViewDataSource{
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("userCell", forIndexPath: indexPath) as! CollectionViewUserCell
     var userImage = userResults[indexPath.row]
     println("Users image:\(userImage)")
+    
+    // Photo
+    if let profileImage = self.gitHubUser?.profileImageURL {
+      cell.backgroundView?.addSubview(cell.imageViewUser)
+    } else {
+      
+      //Only load when needed
+      userImageQueue.addOperationWithBlock({ () -> Void in
+        //Check if there is an URL, Data and image
+        if let imageURL = NSURL(string: self.gitHubUser!.profileImageURL),
+        data = NSData(contentsOfURL: imageURL),
+          image = UIImage(data: data){
+            
+            //Check for image size depending on resolution
+            var size : CGSize
+            switch UIScreen.mainScreen().scale {
+            case 2:
+              size = CGSize(width: 160, height: 160)
+            case 3:
+              size = CGSize(width: 240, height: 240)
+              println("Size 240")
+            default:
+              size = CGSize(width: 80, height: 80)
+              println("default")
+            }
+            
+            let resizedImage = ImageSizer.resizeImage(image, size: size)
+            
+            // Send operation back to the main Queue
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+              
+              userImage.profileImage = resizedImage
+              
+              self.userResults[indexPath.row] = userImage
+              
+              cell.imageViewUser?.image = resizedImage
+              
+            })
+        }
+      })
+      
+    }
     
     return cell
   }

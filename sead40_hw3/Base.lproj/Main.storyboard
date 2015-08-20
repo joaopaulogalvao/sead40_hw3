@@ -166,7 +166,7 @@
         <!--User Search View Controller-->
         <scene sceneID="ILC-gE-Dnf">
             <objects>
-                <viewController id="hVk-r5-eCx" customClass="UserSearchViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="hVk-r5-eCx" customClass="UserSearchViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OQf-3k-irG"/>
                         <viewControllerLayoutGuide type="bottom" id="7x8-P7-vMR"/>
