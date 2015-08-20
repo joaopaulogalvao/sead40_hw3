@@ -80,6 +80,8 @@ extension UserSearchViewController : UICollectionViewDataSource{
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("userCell", forIndexPath: indexPath) as! CollectionViewUserCell
     
+    cell.layer.cornerRadius = 50
+    // Set the imageView for nil each time it dequeue a cell. 
     cell.imageViewUser.image = nil
     
     var userImage = userResults[indexPath.row]
