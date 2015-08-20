@@ -79,18 +79,22 @@ extension UserSearchViewController : UICollectionViewDataSource{
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("userCell", forIndexPath: indexPath) as! CollectionViewUserCell
+    
+    cell.imageViewUser.image = nil
+    
     var userImage = userResults[indexPath.row]
     println("Users image:\(userImage)")
     
-    // Photo
-    if let profileImage = self.gitHubUser?.profileImageURL {
-      cell.backgroundView?.addSubview(cell.imageViewUser)
+    // If there is an image set an image for a user
+    if let profileImage = self.gitHubUser?.profileImage {
+      
+      cell.imageViewUser.image = profileImage
     } else {
       
       //Only load when needed
       userImageQueue.addOperationWithBlock({ () -> Void in
-        //Check if there is an URL, Data and image
-        if let imageURL = NSURL(string: self.gitHubUser!.profileImageURL),
+        //Check if there is an URL - set indexPath for each url / check Data and image
+        if let imageURL = NSURL(string: self.userResults[indexPath.row].profileImageURL),
         data = NSData(contentsOfURL: imageURL),
           image = UIImage(data: data){
             
