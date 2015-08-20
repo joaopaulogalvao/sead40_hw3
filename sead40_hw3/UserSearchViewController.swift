@@ -17,7 +17,7 @@ class UserSearchViewController: UIViewController, UISearchBarDelegate, UICollect
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var searchBarUser: UISearchBar!
   
-  
+  let kCornerRadius : CGFloat = 50.0
   
   
     override func viewDidLoad() {
@@ -35,17 +35,34 @@ class UserSearchViewController: UIViewController, UISearchBarDelegate, UICollect
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+  //MARK: Navigation
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+    if segue.identifier == "showDetailView" {
+      if let detailViewController = segue.destinationViewController as? DetailViewController {
+        
+        let myIndexPath = self.collectionView.indexPathsForSelectedItems()
+        
+        if let indexPath = self.collectionView?.indexPathsForSelectedItems() {
+          
+//          let selectedRow: AnyObject? = indexPath.first
+          let selectedUser = self.userResults.first
+//          println("Row \(indexPath.row) selected")
+          
+          
+          detailViewController.selectedUserName = selectedUser
+          
+        }
+        
+        println("Detail Clicked")
+        
+      }
     }
-    */
+  }
+
 
 }
+
+//MARK: - UISearchBarDelegate
 
 extension UserSearchViewController : UISearchBarDelegate {
   
@@ -64,12 +81,39 @@ extension UserSearchViewController : UISearchBarDelegate {
   
 }
 
+//MARK: - UICollectionViewDelegate
+
 extension UserSearchViewController : UICollectionViewDelegate {
   
   
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    
+    if let detailViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? DetailViewController {
+      
+        let selectedUser = self.userResults[indexPath.row]
+        
+        println("Row \(indexPath.row) selected")
+        
+        detailViewController.user_name = selectedUser.username
+  
+        detailViewController.selectedUserName = selectedUser
+        
+        
+        println(selectedUser)
+        
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+      }
+      
+    
+  }
   
   
 }
+
+//MARK: - UICollectionViewDataSource
 
 extension UserSearchViewController : UICollectionViewDataSource{
   
@@ -80,7 +124,7 @@ extension UserSearchViewController : UICollectionViewDataSource{
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("userCell", forIndexPath: indexPath) as! CollectionViewUserCell
     
-    cell.layer.cornerRadius = 50
+    cell.layer.cornerRadius = kCornerRadius
     // Set the imageView for nil each time it dequeue a cell. 
     cell.imageViewUser.image = nil
     

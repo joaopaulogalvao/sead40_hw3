@@ -206,7 +206,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageViewUser" destination="3ky-iS-GCk" id="x94-84-nd2"/>
-                                            <segue destination="fdt-ZA-R1o" kind="show" id="1ky-fJ-vMx"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -249,16 +248,17 @@
                     <connections>
                         <outlet property="collectionView" destination="bCW-dX-9mw" id="x6m-Av-HOL"/>
                         <outlet property="searchBarUser" destination="Msw-vy-PHM" id="o4m-Ws-NyX"/>
+                        <segue destination="fdt-ZA-R1o" kind="show" identifier="showDetailView" id="9mF-d8-gq5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RP7-K0-X5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1700" y="-57"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="720-ab-spM">
             <objects>
-                <viewController id="fdt-ZA-R1o" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileView" id="fdt-ZA-R1o" customClass="DetailViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tBS-CL-5Jz"/>
                         <viewControllerLayoutGuide type="bottom" id="8ga-eL-pef"/>
@@ -316,6 +316,9 @@
                             <constraint firstItem="8ga-eL-pef" firstAttribute="top" secondItem="edm-UZ-BVh" secondAttribute="bottom" id="zM4-Xh-78d"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelUserDetail" destination="LSf-QM-es0" id="YcI-1T-bM6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8W-nm-ZQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
