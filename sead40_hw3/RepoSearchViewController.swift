@@ -12,6 +12,7 @@ class RepoSearchViewController: UIViewController, UITableViewDataSource, UITable
 
   
   var userResults = [User]()
+  var repoResults = [Repos]()
   
   @IBOutlet weak var tableviewSearch: UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
@@ -48,12 +49,12 @@ class RepoSearchViewController: UIViewController, UITableViewDataSource, UITable
 extension RepoSearchViewController : UISearchBarDelegate {
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-     GithubService.usersForSearchTerm(self.searchBar.text) { (errorDescription, gitUsers) -> (Void) in
+     GithubService.reposForSearchTerm(self.searchBar.text) { (errorDescription, repos) -> (Void) in
     
-      if let gitUsers = gitUsers {
+      if let repos = repos {
         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-          println(gitUsers)
-          self.userResults = gitUsers
+          println(repos)
+          self.repoResults = repos
           self.tableviewSearch.reloadData()
         })
       }
@@ -65,7 +66,7 @@ extension RepoSearchViewController : UISearchBarDelegate {
 extension RepoSearchViewController : UITableViewDataSource {
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.userResults.count
+    return self.repoResults.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -75,9 +76,9 @@ extension RepoSearchViewController : UITableViewDataSource {
 //    userSearchCell.tag++
 //    let tag = userSearchCell.tag
     
-    var infoFromUser = self.userResults[indexPath.row]
+    var infoFromRepos = self.repoResults[indexPath.row]
     
-    userSearchCell.textLabel?.text = infoFromUser.username
+    userSearchCell.textLabel?.text = infoFromRepos.repoName
     
     //tableviewSearch.reloadData()
     

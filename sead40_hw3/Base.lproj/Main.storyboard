@@ -104,9 +104,6 @@
                                                 <constraint firstItem="z5u-jH-AQu" firstAttribute="top" secondItem="6kv-pl-2wU" secondAttribute="topMargin" constant="26" id="ai0-sW-8UO"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="HmU-SE-RYP" kind="show" id="gEn-Ew-DKC"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ad7-Da-KjK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="91"/>
@@ -270,7 +267,4 @@
         <image name="gitHub" width="128" height="128"/>
         <image name="placeholder" width="128" height="128"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="gEn-Ew-DKC"/>
-    </inferredMetricsTieBreakers>
 </document>

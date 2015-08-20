@@ -33,10 +33,32 @@ class GithubJSONParser {
     return gitUserInfo
   }
   
-//  class func reposInfoFromJSONData (jsonData : NSData) -> [Repos]? {
-//  
-//  }
-//  
+  class func reposInfoFromJSONData (jsonData : NSData) -> [Repos]? {
+    
+    var error : NSError?
+    var gitReposInfo = [Repos]()
+    
+    if let reposDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
+      
+      if let items = reposDict["items"] as? [[String : AnyObject]] {
+        //Access the array of Dictionaries
+        for item in items {
+          if let repoName = item["name"] as? String, repoDescription = item["description"] as? String {
+            
+            //Create Git Repo object
+            var gitRepo = Repos(repoName: repoName, repoDescription: repoDescription)
+            
+            gitReposInfo.append(gitRepo)
+          }
+        }
+      }
+      
+    }
+    
+    
+    return gitReposInfo
+  }
+  
   
 }
 
