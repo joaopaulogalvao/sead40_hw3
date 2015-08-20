@@ -17,11 +17,12 @@ class GithubJSONParser {
     if let userDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
       
       if let items = userDict["items"] as? [[String : AnyObject]] {
+        
         for item in items {
 
-          if let username = item["name"] as? String, gitName = item["full_name"] as? String, userLocation = item["html_url"] as? String, userEmail = item["url"] as? String {
-            var gitUser = User(username: username, gitName: gitName, userLocation: userLocation, userEmail: userEmail)
+          if let username = item["login"] as? String, gitName = item["avatar_url"] as? String, userLocation = item["url"] as? String, userEmail = item["repos_url"] as? String {
             
+            var gitUser = User(username: username, gitName: gitName, userLocation: userLocation, userEmail: userEmail)
             
             gitUserInfo.append(gitUser)
             println("gitUserInfo Array:\(gitUser)")
@@ -32,10 +33,32 @@ class GithubJSONParser {
     return gitUserInfo
   }
   
-//  class func reposInfoFromJSONData (jsonData : NSData) -> [Repos]? {
-//  
-//  }
-//  
+  class func reposInfoFromJSONData (jsonData : NSData) -> [Repos]? {
+    
+    var error : NSError?
+    var gitReposInfo = [Repos]()
+    
+    if let reposDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
+      
+      if let items = reposDict["items"] as? [[String : AnyObject]] {
+        //Access the array of Dictionaries
+        for item in items {
+          if let repoName = item["name"] as? String, repoDescription = item["description"] as? String {
+            
+            //Create Git Repo object
+            var gitRepo = Repos(repoName: repoName, repoDescription: repoDescription)
+            
+            gitReposInfo.append(gitRepo)
+          }
+        }
+      }
+      
+    }
+    
+    
+    return gitReposInfo
+  }
+  
   
 }
 

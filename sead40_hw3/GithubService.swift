@@ -14,35 +14,105 @@ class GithubService {
   
   private init() {}
   
-  class func repositoriesForSearchTerm(searchTerm : (String?, [User]?) -> (Void)){
+  class func usersForSearchTerm(searchTerm : String , completionHandler : (String?, [User]?) -> (Void)){
     
     var results : [User]!
-    let baseURL = "http://localhost:3000"
+    let baseURL = "https://api.github.com/search/users"
     let finalURL = baseURL + "?q=\(searchTerm)"
+    
+    let request = NSMutableURLRequest(URL: NSURL(string: finalURL)!)
+    if let token = KeychainService.loadToken() {
+      request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+    }
     
     //Create the url request
     if let url = NSURL(string: finalURL) {
-      NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
+      NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
         if let error = error {
           println("error")
-          searchTerm("Could not connect to server",nil)
+          completionHandler("Could not connect to server",nil)
         } else if let httpResponse = response as? NSHTTPURLResponse {
           
           println("http response: \(httpResponse.statusCode)")
 
           switch httpResponse.statusCode {
           case 200...299:
-            let gitAccounts = GithubJSONParser.userInfoFromJSONData(data)
-            searchTerm(nil,gitAccounts)
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+              let gitAccounts = GithubJSONParser.userInfoFromJSONData(data)
+              completionHandler(nil,gitAccounts)
+            })
           case 400...499:
-            searchTerm("this is our fault", nil)
+            completionHandler("this is our fault", nil)
           case 500...599:
-            searchTerm("this is the servers fault", nil)
+            completionHandler("this is the servers fault", nil)
           default:
-            searchTerm("error occurred", nil)
+            completionHandler("error occurred", nil)
           }
         }
       }).resume()
     }
   }
+  
+  class func reposForSearchTerm(searchTerm: String, reposCallback : (String?, [Repos]?) -> (Void)){
+    
+    var results : [Repos]!
+    let baseURL = "https://api.github.com/search/repositories"
+    let finalURL = baseURL + "?q=\(searchTerm)"
+    
+    let request = NSMutableURLRequest(URL: NSURL(string: finalURL)!)
+    if let token = KeychainService.loadToken() {
+      request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+    }
+    
+    if let url = NSURL(string: finalURL){
+      NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+        if let error = error {
+          println("error")
+          reposCallback("Could not connect to server", nil)
+        } else if let httpResponse = response as? NSHTTPURLResponse {
+          println("repos response: \(httpResponse.statusCode)")
+          
+          switch httpResponse.statusCode {
+          case 200...299:
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+              let repos = GithubJSONParser.reposInfoFromJSONData(data)
+              reposCallback(nil,repos)
+            })
+          case 400...499:
+            reposCallback("this is our fault",nil)
+          case 500...599:
+            reposCallback("this is the servers fault", nil)
+          default:
+            reposCallback("error occured",nil)
+          }
+        }
+      }).resume()
+    }
+  }
+  
+  
+  
+  
+  
+  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
