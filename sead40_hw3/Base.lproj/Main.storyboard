@@ -75,6 +75,9 @@
                                                 <constraint firstItem="z5u-jH-AQu" firstAttribute="top" secondItem="6kv-pl-2wU" secondAttribute="topMargin" constant="26" id="ai0-sW-8UO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="hVk-r5-eCx" kind="show" id="RTA-bT-xoZ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ad7-Da-KjK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="91"/>
@@ -160,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="-728" y="359"/>
         </scene>
-        <!--View Controller-->
+        <!--User Search View Controller-->
         <scene sceneID="ILC-gE-Dnf">
             <objects>
-                <viewController id="hVk-r5-eCx" sceneMemberID="viewController">
+                <viewController id="hVk-r5-eCx" customClass="UserSearchViewController" customModule="sead40_hw3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OQf-3k-irG"/>
                         <viewControllerLayoutGuide type="bottom" id="7x8-P7-vMR"/>
@@ -173,7 +176,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bCW-dX-9mw">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yRc-oA-Y2P">
                                     <size key="itemSize" width="100" height="100"/>
@@ -182,7 +185,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aJK-n0-UN9">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="userCell" id="aJK-n0-UN9" customClass="CollectionViewUserCell" customModule="sead40_hw3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -201,11 +204,18 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="3ky-iS-GCk" secondAttribute="trailing" constant="-8" id="dg1-YX-P6k"/>
                                             <constraint firstItem="3ky-iS-GCk" firstAttribute="top" secondItem="aJK-n0-UN9" secondAttribute="topMargin" constant="-8" id="rPT-Sp-ekc"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageViewUser" destination="3ky-iS-GCk" id="x94-84-nd2"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vo2-X8-KHq" id="PHr-cm-q2j"/>
+                                    <outlet property="delegate" destination="Vo2-X8-KHq" id="2Qa-t0-7cD"/>
+                                </connections>
                             </collectionView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Msw-vy-PHM">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -217,8 +227,9 @@
                             <constraint firstItem="bCW-dX-9mw" firstAttribute="top" secondItem="Vo2-X8-KHq" secondAttribute="topMargin" id="HQU-1H-A89"/>
                             <constraint firstItem="bCW-dX-9mw" firstAttribute="top" secondItem="Msw-vy-PHM" secondAttribute="bottom" id="J0L-A5-bJx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Msw-vy-PHM" secondAttribute="trailing" constant="-16" id="NHP-bG-uGv"/>
+                            <constraint firstItem="Msw-vy-PHM" firstAttribute="top" secondItem="OQf-3k-irG" secondAttribute="bottom" id="O7K-wK-hrL"/>
                             <constraint firstItem="bCW-dX-9mw" firstAttribute="top" secondItem="Msw-vy-PHM" secondAttribute="bottom" id="QOV-5M-4R1"/>
-                            <constraint firstItem="Msw-vy-PHM" firstAttribute="top" secondItem="Vo2-X8-KHq" secondAttribute="topMargin" id="bOe-L1-HWe"/>
+                            <constraint firstItem="Msw-vy-PHM" firstAttribute="top" secondItem="Vo2-X8-KHq" secondAttribute="topMargin" constant="64" id="bOe-L1-HWe"/>
                             <constraint firstItem="7x8-P7-vMR" firstAttribute="top" secondItem="bCW-dX-9mw" secondAttribute="bottom" id="byq-du-Nvs"/>
                             <constraint firstItem="bCW-dX-9mw" firstAttribute="leading" secondItem="Vo2-X8-KHq" secondAttribute="leadingMargin" constant="-16" id="dJP-Ql-a6U"/>
                             <constraint firstItem="7x8-P7-vMR" firstAttribute="top" secondItem="bCW-dX-9mw" secondAttribute="bottom" id="ekh-eY-ohY"/>
@@ -226,6 +237,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="bOe-L1-HWe"/>
                                 <exclude reference="8J2-Ig-Mgw"/>
                                 <exclude reference="HQU-1H-A89"/>
                                 <exclude reference="xBv-g0-6f1"/>
@@ -233,6 +245,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="bCW-dX-9mw" id="x6m-Av-HOL"/>
+                        <outlet property="searchBarUser" destination="Msw-vy-PHM" id="o4m-Ws-NyX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RP7-K0-X5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
