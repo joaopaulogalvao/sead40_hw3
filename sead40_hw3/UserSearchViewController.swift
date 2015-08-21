@@ -147,7 +147,7 @@ extension UserSearchViewController : UICollectionViewDataSource{
       userImageQueue.addOperationWithBlock({ () -> Void in
         //Check if there is an URL - set indexPath for each url / check Data and image
         if let imageURL = NSURL(string: self.userResults[indexPath.row].profileImageURL),
-        data = NSData(contentsOfURL: imageURL),
+          data = NSData(contentsOfURL: imageURL),
           image = UIImage(data: data){
             
             //Check for image size depending on resolution
@@ -172,7 +172,9 @@ extension UserSearchViewController : UICollectionViewDataSource{
               
               self.userResults[indexPath.row] = userImage
               
-              cell.imageViewUser?.image = resizedImage
+              if cell.tag == tag {
+                cell.imageViewUser?.image = resizedImage
+              }
               
             })
         }
