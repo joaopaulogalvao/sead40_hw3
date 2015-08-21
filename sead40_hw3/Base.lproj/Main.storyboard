@@ -293,6 +293,11 @@
                                     <constraint firstItem="czv-9x-NvV" firstAttribute="centerX" secondItem="LSf-QM-es0" secondAttribute="centerX" id="Ms5-9D-xUG"/>
                                     <constraint firstAttribute="bottom" secondItem="LSf-QM-es0" secondAttribute="bottom" constant="27" id="RJR-o6-eBR"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RJR-o6-eBR"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="edm-UZ-BVh">
                                 <rect key="frame" x="0.0" y="284" width="600" height="316"/>

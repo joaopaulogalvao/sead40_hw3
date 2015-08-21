@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
   var selectedUserName : User?
+  var userImage : UIImage?
   var user_name : String?
   var users = [User]()
   
@@ -24,7 +25,7 @@ class DetailViewController: UIViewController {
       
       
           self.labelUserDetail.text = self.selectedUserName?.username
-      
+          
       
       
       
