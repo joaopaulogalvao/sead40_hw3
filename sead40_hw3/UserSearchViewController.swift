@@ -96,11 +96,9 @@ extension UserSearchViewController : UICollectionViewDelegate {
         let selectedUser = self.userResults[indexPath.row]
         
         println("Row \(indexPath.row) selected")
-        
-        detailViewController.user_name = selectedUser.username
-  
+      
+        //Pass selecteded user reference to next viewcontroller
         detailViewController.selectedUserName = selectedUser
-        
         
         println(selectedUser)
         
