@@ -27,7 +27,6 @@ class DetailViewController: UIViewController {
     self.imgViewDetail.image = self.selectedUserName?.profileImage
     
     // Adjust rounded border
-    imgViewDetail.layer.borderWidth = 1
     imgViewDetail.layer.masksToBounds = false
     imgViewDetail.layer.cornerRadius = imgViewDetail.frame.height/2
     imgViewDetail.clipsToBounds = true
@@ -38,6 +37,9 @@ class DetailViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  
+  
   
   
   /*

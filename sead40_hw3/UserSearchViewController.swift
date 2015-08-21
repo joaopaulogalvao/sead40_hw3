@@ -12,14 +12,14 @@ class UserSearchViewController: UIViewController, UISearchBarDelegate, UICollect
 
   var userResults = [User]()
   var gitHubUser : User?
-  lazy var userImageQueue = NSOperationQueue()
+  let userImageQueue = NSOperationQueue()
   
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var searchBarUser: UISearchBar!
   
   let kCornerRadius : CGFloat = 50.0
   
-  
+  //MARK: Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +33,17 @@ class UserSearchViewController: UIViewController, UISearchBarDelegate, UICollect
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.delegate = self
+  }
+
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationController?.delegate = nil
+  }
     
 
   //MARK: Navigation
@@ -50,6 +61,7 @@ class UserSearchViewController: UIViewController, UISearchBarDelegate, UICollect
           
           
           detailViewController.selectedUserName = selectedUser
+          
           
         }
         
@@ -123,8 +135,10 @@ extension UserSearchViewController : UICollectionViewDataSource{
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("userCell", forIndexPath: indexPath) as! CollectionViewUserCell
     
     cell.layer.cornerRadius = kCornerRadius
-    // Set the imageView for nil each time it dequeue a cell. 
+    // Set the imageView for nil each time it dequeue a cell.
     cell.imageViewUser.image = nil
+    cell.hidden = false
+    cell.alpha = 1.0
     
     cell.tag++
     let tag = cell.tag
@@ -135,12 +149,13 @@ extension UserSearchViewController : UICollectionViewDataSource{
     println("Users image:\(userImage)")
     
     // If there is an image set an image for a user
-    if let profileImage = self.gitHubUser?.profileImage {
+    if let profileImage = userImage.profileImage {
       
       cell.imageViewUser.image = profileImage
+      
     } else {
       
-      //The reason Brad's is async is because in his service he made a queue 
+      //The reason Brad's is async is because in his service he made a queue
       //Only load when needed
       userImageQueue.addOperationWithBlock({ () -> Void in
         //Check if there is an URL - set indexPath for each url / check Data and image
@@ -164,7 +179,7 @@ extension UserSearchViewController : UICollectionViewDataSource{
             let resizedImage = ImageSizer.resizeImage(image, size: size)
             
             // Send operation back to the main Queue
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+            ImageService.fetchProfileImage(userImage.profileImageURL,imageQueue:self.userImageQueue, completionHandler: { (image) -> () in
               
               userImage.profileImage = resizedImage
               
@@ -172,8 +187,17 @@ extension UserSearchViewController : UICollectionViewDataSource{
               
               if cell.tag == tag {
                 cell.imageViewUser?.image = resizedImage
+                
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                  cell.alpha = 1
+                  // Adjust rounded border
+                  cell.imageViewUser.layer.masksToBounds = false
+                  cell.imageViewUser.layer.cornerRadius = cell.imageViewUser.frame.height/2
+                  cell.imageViewUser.clipsToBounds = true
+                })
+                
               }
-              
+ 
             })
         }
       })
@@ -186,7 +210,13 @@ extension UserSearchViewController : UICollectionViewDataSource{
   
 }
 
-
+extension UserSearchViewController : UINavigationControllerDelegate {
+  func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    
+    return toVC is DetailViewController ? ToUserDetailAnimationController() : nil
+    
+  }
+}
 
 
 
