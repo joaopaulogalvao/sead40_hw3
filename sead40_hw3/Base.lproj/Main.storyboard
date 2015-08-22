@@ -366,6 +366,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="3Er-L6-5L3" kind="show" identifier="loadRepo" id="1he-wI-PvL"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -386,6 +389,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRz-gd-gBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1724" y="665"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2BY-al-yz8">
+            <objects>
+                <viewController id="3Er-L6-5L3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dke-uw-xPu"/>
+                        <viewControllerLayoutGuide type="bottom" id="3ME-lZ-ghg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CSW-Tz-OiT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2Z-si-lCi">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3ME-lZ-ghg" firstAttribute="top" secondItem="J2Z-si-lCi" secondAttribute="bottom" id="62T-jl-MTL"/>
+                            <constraint firstItem="J2Z-si-lCi" firstAttribute="top" secondItem="dke-uw-xPu" secondAttribute="bottom" id="Pkd-du-0eF"/>
+                            <constraint firstItem="J2Z-si-lCi" firstAttribute="leading" secondItem="CSW-Tz-OiT" secondAttribute="leadingMargin" constant="-16" id="coj-Dq-Osv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J2Z-si-lCi" secondAttribute="trailing" constant="-16" id="irL-d9-flC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8q-66-s8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2423" y="665"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4pm-5h-Svp">
