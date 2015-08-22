@@ -10,6 +10,21 @@ import Foundation
 
 class GithubJSONParser {
   
+  //MARK: - My profile data
+  class func myProfileJSONData (jsonData : NSData) -> User? {
+    var error: NSError?
+    var myProfileInfo = User()
+    
+    if let myProfileDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
+      if let myProfileURL = myProfileDict["avatar_url"] as? String, username = myProfileDict["name"] as? String {
+        var myProfile = User(username: username, profileImage: nil, userLocation: nil, userEmail: nil, profileImageURL: myProfileURL)
+        println("myProfileInfo: \(myProfile)")
+      }
+    }
+    return myProfileInfo
+  }
+  
+  //MARK: - User data
   class func userInfoFromJSONData (jsonData : NSData) -> [User]? {
     var error : NSError?
     var gitUserInfo = [User]()
@@ -33,6 +48,7 @@ class GithubJSONParser {
     return gitUserInfo
   }
   
+  //MARK: - Repos data
   class func reposInfoFromJSONData (jsonData : NSData) -> [Repos]? {
     
     var error : NSError?
