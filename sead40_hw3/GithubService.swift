@@ -36,7 +36,7 @@ class GithubService {
           switch httpResponse.statusCode {
           case 200...299:
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-              let myProfile = GithubJSONParser.userInfoFromJSONData(data)
+              let myProfile = GithubJSONParser.myProfileJSONData(data)
               
               completionHandler(nil, myProfile)
             })

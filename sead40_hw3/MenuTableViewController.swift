@@ -25,9 +25,13 @@ class MenuTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
       
       AuthService.performInitialRequest()
-    
       
-      self.imgViewMyProfile.image = myProfile?.profileImage
+      let baseURL = "https://api.github.com/user"
+    
+      GithubService.myProfileSearch(baseURL) { (errorDescription, myProfile) -> (Void) in
+        self.imgViewMyProfile.image = myProfile?.profileImage
+      }
+      
       
       
     }

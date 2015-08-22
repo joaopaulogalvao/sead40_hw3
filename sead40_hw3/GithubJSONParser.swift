@@ -13,11 +13,14 @@ class GithubJSONParser {
   //MARK: - My profile data
   class func myProfileJSONData (jsonData : NSData) -> User? {
     var error: NSError?
-    var myProfileInfo = User()
+    var myProfileInfo : User?
     
     if let myProfileDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
-      if let myProfileURL = myProfileDict["avatar_url"] as? String, username = myProfileDict["name"] as? String {
-        var myProfile = User(username: username, profileImage: nil, userLocation: nil, userEmail: nil, profileImageURL: myProfileURL)
+      
+      if let myProfileURL = myProfileDict["avatar_url"] as? String, username = myProfileDict["name"] as? String, userLocation = myProfileDict["location"] as? String, userEmail = myProfileDict["email"] as? String {
+        
+        var myProfile = User(username: username, profileImage: nil, userLocation: userLocation, userEmail: userEmail, profileImageURL: myProfileURL)
+        
         println("myProfileInfo: \(myProfile)")
       }
     }
