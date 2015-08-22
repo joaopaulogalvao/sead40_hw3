@@ -10,6 +10,11 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
 
+  var myProfile : User!
+  //MARK: Outlets
+  @IBOutlet weak var imgViewMyProfile: UIImageView!
+  
+  //MARK: Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +25,10 @@ class MenuTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
       
       AuthService.performInitialRequest()
+      
+      self.imgViewMyProfile.image = myProfile?.profileImage
+      
+      
     }
 
     override func didReceiveMemoryWarning() {

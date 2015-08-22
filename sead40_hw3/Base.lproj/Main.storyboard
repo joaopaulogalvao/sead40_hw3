@@ -120,6 +120,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="gny-KF-red"/>
+                    <connections>
+                        <outlet property="imgViewMyProfile" destination="jaK-ac-oxN" id="wcJ-bf-UuQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lu0-xK-Yip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
