@@ -25,6 +25,7 @@ class MenuTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
       
       AuthService.performInitialRequest()
+    
       
       self.imgViewMyProfile.image = myProfile?.profileImage
       
