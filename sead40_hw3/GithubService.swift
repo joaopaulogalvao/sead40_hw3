@@ -17,7 +17,7 @@ class GithubService {
   
   //MARK: - My Profile
   class func myProfileSearch(myProfileURL: String, completionHandler : (String?,User?) -> (Void)){
-    var myUserResult : User!
+    //var myUserResult : [User]!
     let baseURL = "https://api.github.com/user"
     let finalURL = baseURL
     

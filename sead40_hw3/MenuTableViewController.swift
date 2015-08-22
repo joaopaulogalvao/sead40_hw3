@@ -10,7 +10,7 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
 
-  var myProfile : User!
+  var myProfile : [User]!
   //MARK: Outlets
   @IBOutlet weak var imgViewMyProfile: UIImageView!
   
@@ -29,7 +29,10 @@ class MenuTableViewController: UITableViewController {
       let baseURL = "https://api.github.com/user"
     
       GithubService.myProfileSearch(baseURL) { (errorDescription, myProfile) -> (Void) in
+        println("myProfileInfo to Menu: \(myProfile)")
         self.imgViewMyProfile.image = myProfile?.profileImage
+        
+        
       }
       
       

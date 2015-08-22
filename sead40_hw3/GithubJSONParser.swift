@@ -17,11 +17,16 @@ class GithubJSONParser {
     
     if let myProfileDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
       
-      if let myProfileURL = myProfileDict["avatar_url"] as? String, username = myProfileDict["name"] as? String, userLocation = myProfileDict["location"] as? String, userEmail = myProfileDict["email"] as? String {
+      if let myProfileURL = myProfileDict["avatar_url"] as? String, username = myProfileDict["name"] as? String, userLocation = myProfileDict["location"] as? String {
         
-        var myProfile = User(username: username, profileImage: nil, userLocation: userLocation, userEmail: userEmail, profileImageURL: myProfileURL)
+        var myProfile = User(username: username, profileImage: nil, userLocation: userLocation, userEmail: nil, profileImageURL: myProfileURL)
         
-        println("myProfileInfo: \(myProfile)")
+        println("myProfile: \(myProfile)")
+        
+        myProfileInfo = myProfile
+        
+        println("myProfileInfo: \(myProfileInfo)")
+        
       }
     }
     return myProfileInfo
