@@ -70,7 +70,15 @@ class MenuTableViewController: UITableViewController {
                 }
                 
                 let resizedImage = ImageSizer.resizeImage(image, size: size)
+                
+                // Adjust rounded border
+                self.imgViewMyProfile.layer.masksToBounds = false
+                self.imgViewMyProfile.layer.cornerRadius = self.imgViewMyProfile.frame.height/2
+                self.imgViewMyProfile.clipsToBounds = true
+                
                 self.imgViewMyProfile.image = resizedImage
+                
+                
                 //Only load when needed
 //                ImageService.fetchProfileImage(myProfile!.profileImageURL, imageQueue: self.myProfileUserImageQueue, completionHandler: { (image) -> () in
 //                  if let profileImage = myProfile!.profileImage {
