@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C3DA9F21B899E0700A5986B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DA9F11B899E0700A5986B /* Extensions.swift */; };
 		6C93E3341B84E79600A2EACF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93E3331B84E79600A2EACF /* Keys.swift */; };
 		6C93E3361B84F00200A2EACF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93E3351B84F00200A2EACF /* AuthService.swift */; };
 		6C93E3381B85061900A2EACF /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93E3371B85061900A2EACF /* KeyChainService.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C3DA9F11B899E0700A5986B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6C93E3331B84E79600A2EACF /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		6C93E3351B84F00200A2EACF /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = ../AuthService.swift; sourceTree = "<group>"; };
 		6C93E3371B85061900A2EACF /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				6C93E3431B86A48500A2EACF /* ImageService.swift */,
 				6C93E3451B86BB8400A2EACF /* ToUserDetailAnimation.swift */,
 				6CF80CC21B88EF1600ABCAB0 /* WebViewController.swift */,
+				6C3DA9F11B899E0700A5986B /* Extensions.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				6C93E3381B85061900A2EACF /* KeyChainService.swift in Sources */,
 				6C93E33E1B856DF800A2EACF /* CollectionViewUserCell.swift in Sources */,
 				6C93E33C1B85671000A2EACF /* UserSearchViewController.swift in Sources */,
+				6C3DA9F21B899E0700A5986B /* Extensions.swift in Sources */,
 				6C93E3441B86A48500A2EACF /* ImageService.swift in Sources */,
 				6C93E3361B84F00200A2EACF /* AuthService.swift in Sources */,
 				6C93E3341B84E79600A2EACF /* Keys.swift in Sources */,
