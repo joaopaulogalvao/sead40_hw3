@@ -122,6 +122,7 @@
                     <navigationItem key="navigationItem" id="gny-KF-red"/>
                     <connections>
                         <outlet property="imgViewMyProfile" destination="jaK-ac-oxN" id="wcJ-bf-UuQ"/>
+                        <outlet property="labelMyProfile" destination="dvK-Ro-O4y" id="KJ3-Ww-lpn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lu0-xK-Yip" userLabel="First Responder" sceneMemberID="firstResponder"/>

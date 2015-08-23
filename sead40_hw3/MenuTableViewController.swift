@@ -10,9 +10,21 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
 
-  var myProfile : [User]!
+  //MARK: Properties
+  var myProfile : User!
+  let myProfileUserImageQueue = NSOperationQueue()
+  
+  //MARK: Constants
+  let kSize2Width : Int = 160
+  let kSize2Height : Int = 160
+  let kSize3Width : Int = 240
+  let kSize3Height : Int = 240
+  let kSizeDefaultWidth : Int = 80
+  let kSizeDefaultHeight : Int = 80
+  
   //MARK: Outlets
   @IBOutlet weak var imgViewMyProfile: UIImageView!
+  @IBOutlet weak var labelMyProfile: UILabel!
   
   //MARK: Life cycle methods
     override func viewDidLoad() {
@@ -30,13 +42,48 @@ class MenuTableViewController: UITableViewController {
     
       GithubService.myProfileSearch(baseURL) { (errorDescription, myProfile) -> (Void) in
         println("myProfileInfo to Menu: \(myProfile)")
-        self.imgViewMyProfile.image = myProfile?.profileImage
-        
+        self.labelMyProfile.text = myProfile?.username
+        if let profileImage = myProfile?.profileImage {
+          
+          self.imgViewMyProfile.image = profileImage
+          
+        } else {
+          
+          self.myProfileUserImageQueue.addOperationWithBlock({ () -> Void in
+            
+            //Check if there is an URL - set indexPath for each url / check Data and image
+            if let imageURL = NSURL(string: myProfile!.profileImageURL),
+              data = NSData(contentsOfURL: imageURL),
+              image = UIImage(data: data){
+                
+                //Check for image size depending on resolution
+                var size : CGSize
+                switch UIScreen.mainScreen().scale {
+                case 2:
+                  size = CGSize(width: self.kSize2Width, height: self.kSize2Height)
+                case 3:
+                  size = CGSize(width: self.kSize3Width, height: self.kSize3Height)
+                  println("Size 240")
+                default:
+                  size = CGSize(width: self.kSizeDefaultWidth, height: self.kSizeDefaultHeight)
+                  println("default")
+                }
+                
+                let resizedImage = ImageSizer.resizeImage(image, size: size)
+                self.imgViewMyProfile.image = resizedImage
+                //Only load when needed
+//                ImageService.fetchProfileImage(myProfile!.profileImageURL, imageQueue: self.myProfileUserImageQueue, completionHandler: { (image) -> () in
+//                  if let profileImage = myProfile!.profileImage {
+//                    //self.myProfile.profileImage = resizedImage
+//                    self.imgViewMyProfile.image = resizedImage
+//                    println("Resized Image:\(resizedImage)")
+//                  }
+//                })
+            }
+          })
+        }
         
       }
-      
-      
-      
     }
 
     override func didReceiveMemoryWarning() {
