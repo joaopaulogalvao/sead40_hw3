@@ -67,10 +67,10 @@ class GithubJSONParser {
       if let items = reposDict["items"] as? [[String : AnyObject]] {
         //Access the array of Dictionaries
         for item in items {
-          if let repoName = item["name"] as? String, repoDescription = item["description"] as? String {
+          if let repoName = item["name"] as? String, repoDescription = item["description"] as? String, repoURL = item["url"] as? String {
             
             //Create Git Repo object
-            var gitRepo = Repos(repoName: repoName, repoDescription: repoDescription)
+            var gitRepo = Repos(repoName: repoName, repoDescription: repoDescription, repoURL : repoURL)
             
             gitReposInfo.append(gitRepo)
           }
