@@ -34,15 +34,39 @@ class RepoSearchViewController: UIViewController, UITableViewDataSource, UITable
     }
     
 
-    /*
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+      if segue.identifier == "showWebview" {
+        if let detailViewController = segue.destinationViewController as? WebViewController {
+          
+          //let myIndexPath = self.tableviewSearch.indexPathForSelectedRow()
+          
+          if let indexPath = self.tableviewSearch.indexPathForSelectedRow() {
+            
+            //          let selectedRow: AnyObject? = indexPath.first
+            let selectedRepo = self.repoResults[indexPath.row]
+            println("Row: \(indexPath.row) selected")
+            //          println("Row \(indexPath.row) selected")
+            
+            
+            detailViewController.selectedRepo = selectedRepo
+            
+            
+          }
+          
+          println("Detail Clicked")
+          
+        }
+      }
+      
+      
     }
-    */
+  
 
 }
 
@@ -86,6 +110,7 @@ extension RepoSearchViewController : UITableViewDataSource {
   }
 }
 
+/*
 extension RepoSearchViewController : UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
@@ -99,13 +124,16 @@ extension RepoSearchViewController : UITableViewDelegate {
       
       repoWebView.selectedRepo = selectedRepo
       
+      //self.presentViewController(repoWebView, animated: true, completion: nil)
+      
       self.navigationController?.pushViewController(repoWebView, animated: true)
       
     }
     
   }
-}
 
+}
+*/
 
 
 
