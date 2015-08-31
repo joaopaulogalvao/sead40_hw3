@@ -11,22 +11,25 @@ import WebKit
 
 class WebViewController: UIViewController {
 
-  var selectedRepo : Repos?
+  var selectedRepo : Repos!
   
-  @IBOutlet weak var webViewRepos: UIWebView!
+  //@IBOutlet weak var webViewRepos: UIWebView!
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      let webView = WKWebView(frame: view.frame)
+      view.addSubview(webView)
 
       
         // Do any additional setup after loading the view.
 //      let baseURL = "https://api.github.com/search/repositories"
 //      let finalURL = baseURL + "?q=\(selectedRepo!.repoURL)"
       
-      //if let urlRequest = NSURL(string: selectedRepo!.repoURL){
-        let urlRequest = NSURLRequest(URL: NSURL(string: selectedRepo!.repoURL)!)
-        webViewRepos.loadRequest(urlRequest)
-      //}
+//      if let urlRequest = NSURL(string: selectedRepo!.repoURL){
+        let urlRequest = NSURLRequest(URL: NSURL(string: selectedRepo.repoURL)!)
+        webView.loadRequest(urlRequest)
+//      }
       
     }
 
