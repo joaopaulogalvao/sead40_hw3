@@ -86,6 +86,35 @@ extension RepoSearchViewController : UITableViewDataSource {
   }
 }
 
+extension RepoSearchViewController : UITableViewDelegate {
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    if let repoWebView = storyboard.instantiateViewControllerWithIdentifier("WebRepo") as? WebViewController {
+      
+      let selectedRepo = self.repoResults[indexPath.row]
+      
+      println("Row: \(indexPath.row) selected")
+      
+      repoWebView.selectedRepo = selectedRepo
+      
+      self.navigationController?.pushViewController(repoWebView, animated: true)
+      
+    }
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

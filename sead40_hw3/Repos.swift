@@ -12,6 +12,6 @@ struct Repos {
     
   let repoName : String
   let repoDescription : String
-
+  let repoURL : String
   
 }

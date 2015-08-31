@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 struct User {
   
   var username : String?
-  var gitName : String?
+  var profileImage : UIImage?
   var userLocation : String?
   var userEmail : String?
-
+  
+  var profileImageURL : String
+  
+  
   
 }
